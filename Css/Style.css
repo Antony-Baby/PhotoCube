@@ -3,11 +3,25 @@ body {
     background-size: 100vw 100vh;
 }
 
+.main {
+    display: flex;
+    /* box-sizing: border-box; */
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .box-wraper {
     width: 200px;
     height: 200px;
     perspective: 1000px;
     margin: 100px 100px 0;
+}
+
+.cube-2 {
+    width: 200px;
+    height: 200px;
+    perspective: 1000px;
+    margin-left: 600px 100px 0;
 }
 
 .box-items {
@@ -70,4 +84,88 @@ body {
     width: 190px;
     border-radius: 10px;
     margin-left: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        /* background: linear-gradient(45deg, rgba(223, 108, 108, 0.8), rgba(228, 118, 44, 0.6)), url("../Externals/background.jpg"); */
+        background-size: 100vw 50vh;
+    }
+    .main {
+        display: flex;
+        /* box-sizing: border-box; */
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .box-wraper {
+        width: 100px;
+        height: 100px;
+        perspective: 1000px;
+        /* margin-left: 80px 80px 0; */
+    }
+    .cube-3,
+    .cube-7,
+    .cube-1 {
+        margin-left: 40px;
+    }
+    .cube-2 {
+        width: 100px;
+        height: 100px;
+        perspective: 1000px;
+        /* margin-left: 600px 100px 0; */
+    }
+    .box-items {
+        transform-style: preserve-3d;
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    .box {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        /* background-image: repeating-linear-gradient(0deg, rgba(70, 70, 70, 0.2) 0px, rgba(70, 70, 70, 0.2) 1px, transparent 1px, transparent 21px), repeating-linear-gradient(90deg, rgba(70, 70, 70, 0.2) 0px, rgba(70, 70, 70, 0.2) 1px, transparent 1px, transparent 21px), linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255)); */
+    }
+    .box-items {
+        transform-style: preserve-3d;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        animation: spin 5s infinite linear;
+    }
+    .box img {
+        height: 95px;
+        width: 95px;
+        border-radius: 10px;
+        margin-left: 2.5px;
+    }
+    .top {
+        transform: rotateX(90deg) translateZ(50px);
+    }
+    .bottom {
+        transform: rotateX(-90deg) translateZ(50px);
+    }
+    .right {
+        transform: rotateY(90deg) translateZ(50px);
+    }
+    .left {
+        transform: rotateY(-90deg) translateZ(50px);
+    }
+    .front {
+        transform: rotateX(0deg) translateZ(50px);
+    }
+    .back {
+        transform: rotateX(-180deg) translateZ(50px);
+    }
+    @keyframes spin {
+        from {
+            transform: rotateX(0deg) rotateY(0deg);
+        }
+        to {
+            transform: rotateX(360deg) rotateY(360deg);
+        }
+    }
+    .no-display {
+        display: none;
+    }
 }
